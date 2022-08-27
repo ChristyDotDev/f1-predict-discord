@@ -25,11 +25,17 @@ client.on('interactionCreate', async interaction => {
 		console.log(Date.now());
 
 		const channel = client.channels.cache.get(interaction.channelId);
+		//TODO - ack this and defer this processing
+		//TODO - Lookup which F1 event it'll be for
 		const thread = await channel.threads.create({
 			name: 'f1-event-' + Date.now().toString(),
 			autoArchiveDuration: 60,
 			reason: 'A prediction thread for some f1 event',
 		});
+		//TODO - collect messages in this new thread
+		//TODO - store predictions in a spreadsheet
+		//TODO - score the predictions against results
+		//TODO - score a league? Season? Who knows
 
 		await interaction.reply("Howdy. It's a predict thread");
     }
